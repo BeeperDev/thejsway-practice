@@ -9,15 +9,25 @@
 // These accounts are stored in an array. Next, the program credits 1000 to each account and shows its description.
 
 class Account{
-    constructor(name, balance, credit){
-        this.name = name
-        this.balance = balance
-        this.credit = credit
+    constructor(name){
+        this.owner = name
+        this.balance = 0
+    }
+    credit(value){
+        this.balance += value
     }
     describe(){
-        console.log(`owner: ${this.name}, balance ${this.balance}`)
+        console.log(`owner: ${this.owner}, balance ${this.balance}`)
     }
 }
 
-
 let accountsArray = [] //arr of objects
+
+accountsArray.push(new Account('Erica'))
+accountsArray.push(new Account('Brad'))
+accountsArray.push(new Account('Georges'))
+
+accountsArray.forEach(account => {
+    account.credit(1000)
+    console.log(account.describe())
+})
