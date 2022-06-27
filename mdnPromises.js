@@ -28,3 +28,13 @@ fetch2Promise.then( response => {
 // "baked beans"
 
 
+// We can rewrite the above code like this>
+const fetchPromise = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
+
+fetchPromise
+  .then( response => {
+    return response.json();
+  })
+  .then( data => {
+    console.log(data[0].name);
+  });
